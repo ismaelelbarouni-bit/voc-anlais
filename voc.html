@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Verbes Irréguliers 🇬🇧</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#080810;--surf:#12121e;--surf2:#1a1a2e;--bord:#252538;
+  --c1:#ff6b35;--c2:#7c4dff;--c3:#00e5a0;--c4:#ffd600;
+  --c5:#ff4081;--c6:#00b4d8;--c7:#f72585;--c8:#b5e853;
+  --tx:#f0f0f8;--dim:#6a6a8a;
+  --fh:'Syne',sans-serif;--fm:'Space Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--tx);font-family:var(--fh);min-height:100vh;overflow-x:hidden;}
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 0%,rgba(124,77,255,.08) 0%,transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 100%,rgba(255,107,53,.06) 0%,transparent 60%),
+    linear-gradient(rgba(124,77,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(124,77,255,.025) 1px,transparent 1px);
+  background-size:100% 100%,100% 100%,50px 50px,50px 50px;
+}
+.wrap{position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:0 16px 60px;}
+
+/* HEADER */
+header{text-align:center;padding:clamp(36px,8vw,80px) 16px 32px;}
+.eyebrow{font-family:var(--fm);font-size:10px;letter-spacing:5px;color:var(--c3);text-transform:uppercase;margin-bottom:14px;}
+header h1{
+  font-size:clamp(44px,10vw,96px);font-weight:800;line-height:.92;letter-spacing:-3px;
+  background:linear-gradient(135deg,#fff 0%,var(--c2) 45%,var(--c1) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:16px;
+}
+header p{color:var(--dim);font-family:var(--fm);font-size:clamp(11px,2vw,13px);max-width:500px;margin:0 auto;line-height:1.9;}
+
+/* FORMULA */
+.formula{
+  display:flex;align-items:center;justify-content:center;gap:clamp(8px,3vw,20px);
+  flex-wrap:wrap;background:var(--surf);border:1px solid var(--bord);
+  border-left:4px solid var(--c2);border-radius:14px;
+  padding:clamp(14px,3vw,22px) clamp(16px,4vw,32px);
+  margin:24px auto;max-width:680px;font-family:var(--fm);
+}
+.formula .step{display:flex;flex-direction:column;align-items:center;gap:4px;}
+.formula .step .sv{font-size:clamp(14px,3vw,19px);font-weight:700;color:var(--c4);}
+.formula .step .sl{font-size:9px;letter-spacing:2px;color:var(--dim);text-transform:uppercase;}
+.formula .arrow{font-size:clamp(18px,3vw,24px);color:var(--c2);}
+
+/* TABS */
+.tabs{
+  display:flex;gap:4px;background:var(--surf);border:1px solid var(--bord);
+  border-radius:16px;padding:6px;overflow-x:auto;scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;margin-bottom:28px;
+}
+.tabs::-webkit-scrollbar{display:none;}
+.tab-btn{
+  flex:1;min-width:90px;padding:11px 12px;background:transparent;border:none;
+  border-radius:11px;color:var(--dim);font-family:var(--fh);font-size:clamp(11px,2vw,14px);
+  font-weight:700;cursor:pointer;transition:all .2s;white-space:nowrap;letter-spacing:.5px;
+}
+.tab-btn:hover{color:var(--tx);background:var(--surf2);}
+.tab-btn.active{background:var(--c2);color:#fff;}
+.panel{display:none;animation:fadeIn .3s ease;}
+.panel.active{display:block;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* FAMILIES */
+.fgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:18px;}
+.fcard{
+  background:var(--surf);border:1px solid var(--bord);border-radius:18px;
+  padding:22px;transition:transform .2s,border-color .2s,box-shadow .2s;
+}
+.fcard:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.35);}
+.fbadge{display:inline-block;padding:5px 12px;border-radius:20px;font-family:var(--fm);font-size:10px;font-weight:700;letter-spacing:2px;margin-bottom:12px;}
+.fcard h3{font-size:clamp(18px,3vw,22px);font-weight:800;margin-bottom:4px;}
+.fsub{font-family:var(--fm);font-size:10px;color:var(--dim);margin-bottom:14px;letter-spacing:1px;text-transform:uppercase;}
+.vlist{display:flex;flex-direction:column;gap:6px;}
+.vrow{
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;
+  padding:8px 10px;background:var(--bg);border-radius:9px;
+  font-family:var(--fm);font-size:11px;border:1px solid transparent;transition:border-color .15s;
+}
+.vrow:hover{border-color:var(--bord);}
+.v1{font-weight:700;color:var(--tx);}
+.v2,.v3{color:var(--dim);}
+.vmean{grid-column:1/-1;font-size:9px;color:var(--dim);font-style:italic;margin-top:2px;letter-spacing:.5px;}
+.more{text-align:center;padding:7px;font-family:var(--fm);font-size:10px;color:var(--dim);}
+
+/* family colours */
+.fc1{border-color:rgba(255,107,53,.25);} .fc1:hover{border-color:var(--c1);} .fc1 h3{color:var(--c1);} .fc1 .fbadge{background:rgba(255,107,53,.12);color:var(--c1);}
+.fc2{border-color:rgba(0,229,160,.25);} .fc2:hover{border-color:var(--c3);} .fc2 h3{color:var(--c3);} .fc2 .fbadge{background:rgba(0,229,160,.12);color:var(--c3);}
+.fc3{border-color:rgba(255,214,0,.25);} .fc3:hover{border-color:var(--c4);} .fc3 h3{color:var(--c4);} .fc3 .fbadge{background:rgba(255,214,0,.12);color:var(--c4);}
+.fc4{border-color:rgba(124,77,255,.25);} .fc4:hover{border-color:var(--c2);} .fc4 h3{color:var(--c2);} .fc4 .fbadge{background:rgba(124,77,255,.12);color:var(--c2);}
+.fc5{border-color:rgba(255,64,129,.25);} .fc5:hover{border-color:var(--c5);} .fc5 h3{color:var(--c5);} .fc5 .fbadge{background:rgba(255,64,129,.12);color:var(--c5);}
+.fc6{border-color:rgba(0,180,216,.25);} .fc6:hover{border-color:var(--c6);} .fc6 h3{color:var(--c6);} .fc6 .fbadge{background:rgba(0,180,216,.12);color:var(--c6);}
+.fc7{border-color:rgba(247,37,133,.25);} .fc7:hover{border-color:var(--c7);} .fc7 h3{color:var(--c7);} .fc7 .fbadge{background:rgba(247,37,133,.12);color:var(--c7);}
+.fc8{border-color:rgba(181,232,83,.25);} .fc8:hover{border-color:var(--c8);} .fc8 h3{color:var(--c8);} .fc8 .fbadge{background:rgba(181,232,83,.12);color:var(--c8);}
+.fc9{border-color:rgba(255,255,255,.1);} .fc9 h3{color:var(--dim);} .fc9 .fbadge{background:rgba(255,255,255,.07);color:var(--dim);}
+
+/* MNEMO */
+.mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));gap:22px;}
+.mcard{background:var(--surf);border-radius:20px;border:1px solid var(--bord);overflow:hidden;transition:transform .2s,box-shadow .2s;}
+.mcard:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.45);}
+.mcard-stripe{height:5px;width:100%;}
+.mcard-inner{padding:22px;}
+.mcard-head{display:flex;align-items:center;gap:14px;margin-bottom:14px;}
+.mcard-icon{font-size:30px;width:54px;height:54px;border-radius:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.mcard-tag{font-family:var(--fm);font-size:9px;letter-spacing:3px;text-transform:uppercase;padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:6px;font-weight:700;}
+.mcard-title{font-size:clamp(16px,2.5vw,20px);font-weight:800;line-height:1.1;}
+.mcard-desc{
+  font-family:var(--fm);font-size:clamp(12px,1.8vw,13px);
+  color:var(--tx);line-height:1.9;margin-bottom:16px;
+  padding:14px 16px;background:rgba(255,255,255,.03);border-radius:10px;
+}
+.mcard-desc b{font-weight:700;}
+.mcard-ex{border-radius:12px;padding:14px 16px;}
+.ex-title{font-family:var(--fm);font-size:9px;letter-spacing:3px;text-transform:uppercase;opacity:.55;margin-bottom:10px;}
+.ex-line{font-family:var(--fm);font-size:clamp(11px,1.8vw,13px);font-weight:700;line-height:2.1;display:flex;align-items:baseline;gap:8px;}
+.ex-arrow{opacity:.4;flex-shrink:0;}
+
+/* colour variants */
+.m-orange .mcard-stripe{background:var(--c1);} .m-orange .mcard-icon{background:rgba(255,107,53,.15);} .m-orange .mcard-tag{background:rgba(255,107,53,.15);color:var(--c1);} .m-orange .mcard-title{color:var(--c1);} .m-orange .mcard-ex{background:rgba(255,107,53,.07);color:var(--c1);}
+.m-green .mcard-stripe{background:var(--c3);} .m-green .mcard-icon{background:rgba(0,229,160,.15);} .m-green .mcard-tag{background:rgba(0,229,160,.15);color:var(--c3);} .m-green .mcard-title{color:var(--c3);} .m-green .mcard-ex{background:rgba(0,229,160,.07);color:var(--c3);}
+.m-yellow .mcard-stripe{background:var(--c4);} .m-yellow .mcard-icon{background:rgba(255,214,0,.15);} .m-yellow .mcard-tag{background:rgba(255,214,0,.15);color:var(--c4);} .m-yellow .mcard-title{color:var(--c4);} .m-yellow .mcard-ex{background:rgba(255,214,0,.07);color:var(--c4);}
+.m-purple .mcard-stripe{background:var(--c2);} .m-purple .mcard-icon{background:rgba(124,77,255,.15);} .m-purple .mcard-tag{background:rgba(124,77,255,.15);color:var(--c2);} .m-purple .mcard-title{color:var(--c2);} .m-purple .mcard-ex{background:rgba(124,77,255,.07);color:var(--c2);}
+.m-pink .mcard-stripe{background:var(--c5);} .m-pink .mcard-icon{background:rgba(255,64,129,.15);} .m-pink .mcard-tag{background:rgba(255,64,129,.15);color:var(--c5);} .m-pink .mcard-title{color:var(--c5);} .m-pink .mcard-ex{background:rgba(255,64,129,.07);color:var(--c5);}
+.m-blue .mcard-stripe{background:var(--c6);} .m-blue .mcard-icon{background:rgba(0,180,216,.15);} .m-blue .mcard-tag{background:rgba(0,180,216,.15);color:var(--c6);} .m-blue .mcard-title{color:var(--c6);} .m-blue .mcard-ex{background:rgba(0,180,216,.07);color:var(--c6);}
+.m-lime .mcard-stripe{background:var(--c8);} .m-lime .mcard-icon{background:rgba(181,232,83,.15);} .m-lime .mcard-tag{background:rgba(181,232,83,.15);color:var(--c8);} .m-lime .mcard-title{color:var(--c8);} .m-lime .mcard-ex{background:rgba(181,232,83,.07);color:var(--c8);}
+.m-red .mcard-stripe{background:var(--c7);} .m-red .mcard-icon{background:rgba(247,37,133,.15);} .m-red .mcard-tag{background:rgba(247,37,133,.15);color:var(--c7);} .m-red .mcard-title{color:var(--c7);} .m-red .mcard-ex{background:rgba(247,37,133,.07);color:var(--c7);}
+
+/* TABLE */
+.tcontrols{display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;}
+.sinp{flex:1;min-width:180px;padding:11px 14px;background:var(--surf);border:1px solid var(--bord);border-radius:10px;color:var(--tx);font-family:var(--fm);font-size:12px;outline:none;}
+.sinp:focus{border-color:var(--c2);} .sinp::placeholder{color:var(--dim);}
+.fsel{padding:11px 12px;background:var(--surf);border:1px solid var(--bord);border-radius:10px;color:var(--tx);font-family:var(--fm);font-size:11px;outline:none;cursor:pointer;}
+.fsel option{background:var(--surf);}
+.twrap{overflow-x:auto;background:var(--surf);border:1px solid var(--bord);border-radius:16px;}
+.vtbl{width:100%;border-collapse:collapse;font-family:var(--fm);font-size:12px;}
+.vtbl th{text-align:left;padding:12px 14px;color:var(--dim);font-size:10px;letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid var(--bord);}
+.vtbl td{padding:10px 14px;border-bottom:1px solid rgba(37,37,56,.5);vertical-align:middle;}
+.vtbl tr:hover td{background:var(--surf2);}
+.c1t{font-weight:700;} .c2t,.c3t{color:var(--dim);} .c4t{color:var(--dim);font-style:italic;font-size:10px;}
+.vtag{display:inline-block;padding:3px 8px;border-radius:6px;font-size:10px;font-weight:700;letter-spacing:1px;}
+
+/* QUIZ */
+.qwrap{max-width:660px;margin:0 auto;}
+.qsettings{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px;justify-content:center;}
+.chip{padding:8px 16px;background:var(--surf);border:1px solid var(--bord);border-radius:20px;font-family:var(--fm);font-size:11px;color:var(--dim);cursor:pointer;transition:all .2s;letter-spacing:1px;}
+.chip:hover{border-color:var(--dim);color:var(--tx);}
+.chip.active{background:var(--c2);border-color:var(--c2);color:#fff;}
+.qtop{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:10px;}
+.qscore{font-family:var(--fm);font-size:12px;color:var(--dim);}
+.qscore span{color:var(--c3);font-weight:700;}
+.btn-sm{padding:10px 20px;background:var(--surf2);border:1px solid var(--bord);border-radius:10px;color:var(--dim);font-family:var(--fh);font-weight:700;font-size:13px;cursor:pointer;transition:all .2s;}
+.btn-sm:hover{color:var(--tx);border-color:var(--dim);}
+.pbar{height:4px;background:var(--surf2);border-radius:4px;margin-bottom:32px;overflow:hidden;}
+.pfill{height:100%;background:linear-gradient(90deg,var(--c2),var(--c3));border-radius:4px;transition:width .4s ease;}
+.qcard{background:var(--surf);border:1px solid var(--bord);border-radius:20px;padding:clamp(22px,5vw,44px);text-align:center;min-height:280px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.qlabel{font-family:var(--fm);font-size:10px;letter-spacing:3px;color:var(--dim);margin-bottom:18px;text-transform:uppercase;}
+.qverb{font-size:clamp(34px,8vw,60px);font-weight:800;color:var(--c1);letter-spacing:-2px;margin-bottom:10px;}
+.qfr{font-family:var(--fm);font-size:12px;color:var(--dim);margin-bottom:30px;}
+.qinputs{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;width:100%;}
+.qinp{flex:1;min-width:130px;padding:14px 16px;background:var(--bg);border:2px solid var(--bord);border-radius:11px;color:var(--tx);font-family:var(--fm);font-size:14px;text-align:center;outline:none;transition:border-color .2s;}
+.qinp:focus{border-color:var(--c2);}
+.qinp.ok{border-color:var(--c3);background:rgba(0,229,160,.05);color:var(--c3);}
+.qinp.ko{border-color:var(--c5);background:rgba(255,64,129,.05);color:var(--c5);}
+.qactions{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap;justify-content:center;}
+.btn-pri{padding:13px 28px;background:var(--c2);border:none;border-radius:11px;color:#fff;font-family:var(--fh);font-weight:700;font-size:14px;cursor:pointer;transition:all .2s;}
+.btn-pri:hover{background:#9965ff;transform:translateY(-1px);}
+.btn-sec{padding:13px 24px;background:var(--surf2);border:1px solid var(--bord);border-radius:11px;color:var(--dim);font-family:var(--fh);font-weight:700;font-size:14px;cursor:pointer;}
+.btn-sec:hover{color:var(--tx);}
+.qfeedback{margin-top:18px;font-family:var(--fm);font-size:13px;min-height:22px;display:flex;gap:20px;flex-wrap:wrap;justify-content:center;}
+.qfb-item{color:var(--dim);}
+.qfb-item strong{color:var(--c3);}
+.qresult{text-align:center;padding:40px 20px;}
+.qresult .bscore{font-size:clamp(60px,12vw,88px);font-weight:800;line-height:1;margin-bottom:10px;}
+.qresult p{font-family:var(--fm);font-size:13px;color:var(--dim);margin-bottom:24px;}
+
+/* PLAN */
+.plangrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,290px),1fr));gap:18px;}
+.pcard{background:var(--surf);border:1px solid var(--bord);border-radius:18px;padding:26px;position:relative;overflow:hidden;}
+.pcard::before{content:attr(data-d);position:absolute;top:-8px;right:16px;font-size:72px;font-weight:800;color:rgba(255,255,255,.03);line-height:1;pointer-events:none;}
+.pcard-day{font-family:var(--fm);font-size:10px;letter-spacing:2px;color:var(--dim);text-transform:uppercase;margin-bottom:8px;}
+.pcard h3{font-size:18px;font-weight:800;color:var(--c2);margin-bottom:14px;}
+.pcard ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.pcard ul li{font-family:var(--fm);font-size:12px;color:var(--dim);display:flex;align-items:flex-start;gap:10px;line-height:1.6;padding-bottom:8px;border-bottom:1px solid var(--bord);}
+.pcard ul li:last-child{border-bottom:none;padding-bottom:0;}
+.pcard ul li::before{content:'→';color:var(--c3);flex-shrink:0;}
+
+/* MOBILE */
+@media(max-width:600px){
+  .wrap{padding:0 10px 50px;}
+  .tabs{border-radius:12px;padding:4px;}
+  .tab-btn{min-width:80px;padding:9px 8px;font-size:11px;border-radius:8px;}
+  .fcard{padding:16px;}
+  .vrow{font-size:10px;padding:6px 8px;}
+  .mcard-inner{padding:16px;}
+  .mcard-desc{font-size:12px;padding:12px;}
+  .mcard-ex{padding:12px;}
+  .vtbl .c4t{display:none;}
+  .qcard{padding:18px 14px;border-radius:16px;}
+  .qverb{font-size:clamp(28px,9vw,44px);}
+  .qinp{font-size:13px;padding:12px 10px;}
+  .pcard{padding:18px;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">🇬🇧 Méthode accélérée · 140 verbes</div>
+  <h1>Verbes<br>Irréguliers</h1>
+  <p>80 + 60 verbes du fichier — organisés en <strong style="color:var(--tx)">9 familles de sons</strong> pour une mémorisation rapide et durable.</p>
+</header>
+
+<div class="formula">
+  <div class="step"><span class="sv">Infinitif</span><span class="sl">base</span></div>
+  <span class="arrow">→</span>
+  <div class="step"><span class="sv">Prétérit</span><span class="sl">passé simple</span></div>
+  <span class="arrow">→</span>
+  <div class="step"><span class="sv">Participe Passé</span><span class="sl">have + …</span></div>
+</div>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab('families',this)">🧩 Familles</button>
+  <button class="tab-btn" onclick="showTab('quiz',this)">⚡ Quiz</button>
+  <button class="tab-btn" onclick="showTab('table',this)">📋 Tableau</button>
+  <button class="tab-btn" onclick="showTab('mnemo',this)">🧠 Mémo</button>
+  <button class="tab-btn" onclick="showTab('plan',this)">📅 Plan</button>
+</div>
+
+<!-- FAMILIES -->
+<div id="tab-families" class="panel active">
+  <div class="fgrid" id="familiesGrid"></div>
+</div>
+
+<!-- QUIZ -->
+<div id="tab-quiz" class="panel">
+  <div class="qwrap">
+    <div class="qsettings" id="qSettings">
+      <div class="chip active" onclick="setQFam('all',this)">Tous</div>
+      <div class="chip" onclick="setQFam('iau',this)">🎵 I-A-U</div>
+      <div class="chip" onclick="setQFam('same',this)">✂️ Tout pareil</div>
+      <div class="chip" onclick="setQFam('dt',this)">🔄 D→T</div>
+      <div class="chip" onclick="setQFam('vowel',this)">🌊 Voyelle</div>
+      <div class="chip" onclick="setQFam('en',this)">📝 -en/-n</div>
+      <div class="chip" onclick="setQFam('ough',this)">💥 -ought</div>
+      <div class="chip" onclick="setQFam('ewn',this)">💨 ew→own</div>
+    </div>
+    <div class="qtop">
+      <div class="qscore">Score : <span id="qScoreDisp">0</span> / <span id="qTotalDisp">0</span></div>
+      <button class="btn-sm" onclick="resetQuiz()">↺ Recommencer</button>
+    </div>
+    <div class="pbar"><div class="pfill" id="pFill" style="width:0%"></div></div>
+    <div id="qContent"></div>
+  </div>
+</div>
+
+<!-- TABLE -->
+<div id="tab-table" class="panel">
+  <div class="tcontrols">
+    <input class="sinp" id="sinp" placeholder="Chercher un verbe…" oninput="filterTable()">
+    <select class="fsel" id="fsel" onchange="filterTable()">
+      <option value="all">Toutes familles</option>
+      <option value="iau">🎵 I-A-U</option>
+      <option value="same">✂️ Tout pareil</option>
+      <option value="dt">🔄 D→T</option>
+      <option value="vowel">🌊 Voyelle</option>
+      <option value="en">📝 -en/-n</option>
+      <option value="ough">💥 -ought</option>
+      <option value="ewn">💨 ew→own</option>
+      <option value="ild">🔨 i→u court</option>
+      <option value="other">❓ Autres</option>
+    </select>
+  </div>
+  <div class="twrap">
+    <table class="vtbl">
+      <thead><tr>
+        <th>#</th><th>Infinitif</th><th>Prétérit</th><th>Participe Passé</th><th>Sens</th><th>Famille</th>
+      </tr></thead>
+      <tbody id="vtbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- MNEMO -->
+<div id="tab-mnemo" class="panel">
+  <div class="mgrid" id="mnemoGrid"></div>
+</div>
+
+<!-- PLAN -->
+<div id="tab-plan" class="panel">
+  <div class="plangrid">
+    <div class="pcard" data-d="J1">
+      <div class="pcard-day">Jour 1 — Matin</div>
+      <h3>🎵 Familles de sons</h3>
+      <ul>
+        <li>Apprends le groupe <strong style="color:var(--c1)">I-A-U</strong> (begin, drink, sing, swim…) en les chantant à voix haute</li>
+        <li>Apprends le groupe <strong style="color:var(--c3)">Tout pareil</strong> (cut, put, cost, hit…) — les plus faciles, 1 seule forme</li>
+        <li>Lis chaque famille 3 fois de suite à voix haute</li>
+      </ul>
+    </div>
+    <div class="pcard" data-d="J1">
+      <div class="pcard-day">Jour 1 — Soir</div>
+      <h3>🔄 D→T et -ought</h3>
+      <ul>
+        <li>Apprends <strong style="color:var(--c4)">D→T</strong> : send/sent, build/built, spend/spent, sleep/slept…</li>
+        <li>Apprends le groupe <strong style="color:var(--c6)">-ought/-aught</strong> : bring/brought, think/thought, teach/taught…</li>
+        <li>Quiz rapide sur l'onglet ⚡ en filtrant ces 2 familles</li>
+      </ul>
+    </div>
+    <div class="pcard" data-d="J2">
+      <div class="pcard-day">Jour 2 — Méthode Active</div>
+      <h3>🌊 Voyelle + -en/-n</h3>
+      <ul>
+        <li>Cache la colonne prétérit → dis-le à voix haute avant de regarder</li>
+        <li>Apprends <strong style="color:var(--c2)">Voyelle glisse</strong> (come/came, sit/sat, hold/held…)</li>
+        <li>Apprends <strong style="color:var(--c5)">-en/-n</strong> (take/took/taken, write/wrote/written…)</li>
+      </ul>
+    </div>
+    <div class="pcard" data-d="J2">
+      <div class="pcard-day">Jour 2 — Ancrage</div>
+      <h3>📌 Post-it rebelles</h3>
+      <ul>
+        <li>Refais le Quiz complet sans tricher — note les ratés</li>
+        <li>Identifie tes 10–15 <em style="color:var(--c5)">rebelles</em> (ratés 2× ou plus)</li>
+        <li>Colle-les sur le miroir, le frigo et l'ordi — vus chaque jour</li>
+      </ul>
+    </div>
+    <div class="pcard" data-d="J3">
+      <div class="pcard-day">Dernière demi-journée</div>
+      <h3>⚡ Sprint final</h3>
+      <ul>
+        <li>Feuille blanche : écris tous ceux dont tu te souviens sans regarder</li>
+        <li>Focus laser sur les rebelles restants pendant 20 min</li>
+        <li>Quiz final : vise minimum 80%</li>
+      </ul>
+    </div>
+    <div class="pcard" data-d="∞">
+      <div class="pcard-day">Entretien continu</div>
+      <h3>🔁 Routine quotidienne</h3>
+      <ul>
+        <li>5 min de quiz dans les transports ou pendant une pause</li>
+        <li>Utilise les verbes dans de vraies phrases chaque jour</li>
+        <li>Priorise toujours les 50 plus fréquents avant tout</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</div><!-- wrap -->
+
+<script>
+// ═══════════════ DATA ═══════════════
+const VERBS=[
+  {i:"to be",p:"was / were",pp:"been",fr:"être",f:"other"},
+  {i:"to have",p:"had",pp:"had",fr:"avoir",f:"same"},
+  {i:"to beat",p:"beat",pp:"beaten",fr:"battre",f:"en"},
+  {i:"to begin",p:"began",pp:"begun",fr:"commencer",f:"iau"},
+  {i:"to bend",p:"bent",pp:"bent",fr:"courber, se pencher",f:"dt"},
+  {i:"to blow",p:"blew",pp:"blown",fr:"souffler",f:"ewn"},
+  {i:"to break",p:"broke",pp:"broken",fr:"briser",f:"en"},
+  {i:"to bring",p:"brought",pp:"brought",fr:"apporter",f:"ough"},
+  {i:"to build",p:"built",pp:"built",fr:"bâtir, construire",f:"dt"},
+  {i:"to burn",p:"burnt",pp:"burnt",fr:"brûler",f:"dt"},
+  {i:"to buy",p:"bought",pp:"bought",fr:"acheter",f:"ough"},
+  {i:"to catch",p:"caught",pp:"caught",fr:"attraper",f:"ough"},
+  {i:"to choose",p:"chose",pp:"chosen",fr:"choisir",f:"en"},
+  {i:"to come",p:"came",pp:"come",fr:"venir",f:"vowel"},
+  {i:"to cut",p:"cut",pp:"cut",fr:"couper",f:"same"},
+  {i:"to do",p:"did",pp:"done",fr:"faire",f:"other"},
+  {i:"to draw",p:"drew",pp:"drawn",fr:"tirer, dessiner",f:"ewn"},
+  {i:"to drink",p:"drank",pp:"drunk",fr:"boire",f:"iau"},
+  {i:"to drive",p:"drove",pp:"driven",fr:"conduire, aller en voiture",f:"en"},
+  {i:"to eat",p:"ate",pp:"eaten",fr:"manger",f:"en"},
+  {i:"to fall",p:"fell",pp:"fallen",fr:"tomber",f:"en"},
+  {i:"to feel",p:"felt",pp:"felt",fr:"(se) sentir, éprouver",f:"dt"},
+  {i:"to fight",p:"fought",pp:"fought",fr:"combattre",f:"ough"},
+  {i:"to find",p:"found",pp:"found",fr:"trouver",f:"vowel"},
+  {i:"to fly",p:"flew",pp:"flown",fr:"voler, aller en avion",f:"ewn"},
+  {i:"to forget",p:"forgot",pp:"forgotten",fr:"oublier",f:"en"},
+  {i:"to get",p:"got",pp:"got / gotten",fr:"obtenir, devenir",f:"vowel"},
+  {i:"to give",p:"gave",pp:"given",fr:"donner",f:"en"},
+  {i:"to go",p:"went",pp:"gone",fr:"aller",f:"other"},
+  {i:"to grow",p:"grew",pp:"grown",fr:"grandir, pousser",f:"ewn"},
+  {i:"to hang",p:"hung",pp:"hung",fr:"pendre, accrocher",f:"vowel"},
+  {i:"to hear",p:"heard",pp:"heard",fr:"entendre",f:"dt"},
+  {i:"to hide",p:"hid",pp:"hidden",fr:"(se) cacher",f:"en"},
+  {i:"to hold",p:"held",pp:"held",fr:"tenir",f:"vowel"},
+  {i:"to keep",p:"kept",pp:"kept",fr:"garder",f:"dt"},
+  {i:"to know",p:"knew",pp:"known",fr:"savoir, connaître",f:"ewn"},
+  {i:"to lead",p:"led",pp:"led",fr:"mener, guider",f:"vowel"},
+  {i:"to learn",p:"learnt",pp:"learnt",fr:"apprendre",f:"dt"},
+  {i:"to leave",p:"left",pp:"left",fr:"laisser, partir",f:"dt"},
+  {i:"to let",p:"let",pp:"let",fr:"laisser, permettre",f:"same"},
+  {i:"to lie",p:"lay",pp:"lain",fr:"être étendu (couché)",f:"iau"},
+  {i:"to light",p:"lit",pp:"lit",fr:"allumer, éclairer",f:"dt"},
+  {i:"to lose",p:"lost",pp:"lost",fr:"perdre",f:"dt"},
+  {i:"to make",p:"made",pp:"made",fr:"faire, fabriquer",f:"vowel"},
+  {i:"to meet",p:"met",pp:"met",fr:"(se) rencontrer",f:"vowel"},
+  {i:"to pay",p:"paid",pp:"paid",fr:"payer",f:"vowel"},
+  {i:"to put",p:"put",pp:"put",fr:"mettre",f:"same"},
+  {i:"to read",p:"read",pp:"read",fr:"lire",f:"same"},
+  {i:"to ride",p:"rode",pp:"ridden",fr:"aller à cheval / vélo",f:"en"},
+  {i:"to ring",p:"rang",pp:"rung",fr:"sonner",f:"iau"},
+  {i:"to run",p:"ran",pp:"run",fr:"courir",f:"iau"},
+  {i:"to say",p:"said",pp:"said",fr:"dire, réciter",f:"vowel"},
+  {i:"to see",p:"saw",pp:"seen",fr:"voir",f:"vowel"},
+  {i:"to sell",p:"sold",pp:"sold",fr:"vendre",f:"vowel"},
+  {i:"to send",p:"sent",pp:"sent",fr:"envoyer",f:"dt"},
+  {i:"to shake",p:"shook",pp:"shaken",fr:"secouer",f:"en"},
+  {i:"to shine",p:"shone",pp:"shone",fr:"briller",f:"vowel"},
+  {i:"to shoot",p:"shot",pp:"shot",fr:"tirer (arme à feu)",f:"vowel"},
+  {i:"to show",p:"showed",pp:"shown",fr:"montrer",f:"en"},
+  {i:"to shut",p:"shut",pp:"shut",fr:"fermer",f:"same"},
+  {i:"to sing",p:"sang",pp:"sung",fr:"chanter",f:"iau"},
+  {i:"to sit",p:"sat",pp:"sat",fr:"être assis",f:"vowel"},
+  {i:"to sleep",p:"slept",pp:"slept",fr:"dormir",f:"dt"},
+  {i:"to speak",p:"spoke",pp:"spoken",fr:"parler",f:"en"},
+  {i:"to spend",p:"spent",pp:"spent",fr:"dépenser, passer (temps)",f:"dt"},
+  {i:"to spread",p:"spread",pp:"spread",fr:"étendre, répandre",f:"same"},
+  {i:"to stand",p:"stood",pp:"stood",fr:"être debout",f:"vowel"},
+  {i:"to steal",p:"stole",pp:"stolen",fr:"voler, dérober",f:"en"},
+  {i:"to stick",p:"stuck",pp:"stuck",fr:"coller",f:"vowel"},
+  {i:"to strike",p:"struck",pp:"struck",fr:"frapper",f:"vowel"},
+  {i:"to swim",p:"swam",pp:"swum",fr:"nager",f:"iau"},
+  {i:"to take",p:"took",pp:"taken",fr:"prendre",f:"en"},
+  {i:"to teach",p:"taught",pp:"taught",fr:"enseigner",f:"ough"},
+  {i:"to tear",p:"tore",pp:"torn",fr:"déchirer",f:"en"},
+  {i:"to tell",p:"told",pp:"told",fr:"dire, raconter",f:"vowel"},
+  {i:"to think",p:"thought",pp:"thought",fr:"penser",f:"ough"},
+  {i:"to throw",p:"threw",pp:"thrown",fr:"jeter, lancer",f:"ewn"},
+  {i:"to wake",p:"woke",pp:"woken",fr:"(se) réveiller",f:"en"},
+  {i:"to wear",p:"wore",pp:"worn",fr:"porter (vêtements)",f:"en"},
+  {i:"to win",p:"won",pp:"won",fr:"gagner",f:"vowel"},
+  {i:"to write",p:"wrote",pp:"written",fr:"écrire",f:"en"},
+  // LISTE 2
+  {i:"to awake",p:"awoke",pp:"awoken",fr:"(se) réveiller",f:"en"},
+  {i:"to bear",p:"bore",pp:"borne",fr:"supporter, porter",f:"en"},
+  {i:"to bet",p:"bet",pp:"bet",fr:"parier",f:"same"},
+  {i:"to bind",p:"bound",pp:"bound",fr:"lier, relier",f:"vowel"},
+  {i:"to bite",p:"bit",pp:"bitten",fr:"mordre",f:"en"},
+  {i:"to bleed",p:"bled",pp:"bled",fr:"saigner",f:"vowel"},
+  {i:"to breed",p:"bred",pp:"bred",fr:"élever (enfants, bétail)",f:"vowel"},
+  {i:"to cast",p:"cast",pp:"cast",fr:"jeter (sens fig.)",f:"same"},
+  {i:"to cling",p:"clung",pp:"clung",fr:"s'accrocher",f:"ild"},
+  {i:"to cost",p:"cost",pp:"cost",fr:"coûter",f:"same"},
+  {i:"to creep",p:"crept",pp:"crept",fr:"ramper",f:"dt"},
+  {i:"to deal",p:"dealt",pp:"dealt",fr:"distribuer",f:"dt"},
+  {i:"to dig",p:"dug",pp:"dug",fr:"creuser",f:"ild"},
+  {i:"to dream",p:"dreamt",pp:"dreamt",fr:"rêver",f:"dt"},
+  {i:"to feed",p:"fed",pp:"fed",fr:"nourrir",f:"vowel"},
+  {i:"to flee",p:"fled",pp:"fled",fr:"s'enfuir",f:"vowel"},
+  {i:"to fling",p:"flung",pp:"flung",fr:"jeter (violemment)",f:"ild"},
+  {i:"to forbid",p:"forbade",pp:"forbidden",fr:"interdire",f:"en"},
+  {i:"to freeze",p:"froze",pp:"frozen",fr:"geler",f:"en"},
+  {i:"to grind",p:"ground",pp:"ground",fr:"moudre",f:"vowel"},
+  {i:"to hit",p:"hit",pp:"hit",fr:"frapper, atteindre",f:"same"},
+  {i:"to hurt",p:"hurt",pp:"hurt",fr:"blesser, faire mal",f:"same"},
+  {i:"to kneel",p:"knelt",pp:"knelt",fr:"s'agenouiller",f:"dt"},
+  {i:"to knit",p:"knit",pp:"knit",fr:"tricoter",f:"same"},
+  {i:"to lay",p:"laid",pp:"laid",fr:"poser à plat",f:"vowel"},
+  {i:"to lean",p:"leant",pp:"leant",fr:"s'appuyer",f:"dt"},
+  {i:"to leap",p:"leapt",pp:"leapt",fr:"sauter",f:"dt"},
+  {i:"to lend",p:"lent",pp:"lent",fr:"prêter",f:"dt"},
+  {i:"to mean",p:"meant",pp:"meant",fr:"signifier, vouloir dire",f:"dt"},
+  {i:"to mow",p:"mowed",pp:"mown",fr:"faucher",f:"en"},
+  {i:"to rise",p:"rose",pp:"risen",fr:"s'élever, se lever",f:"en"},
+  {i:"to saw",p:"sawed",pp:"sawn",fr:"scier",f:"en"},
+  {i:"to seek",p:"sought",pp:"sought",fr:"chercher (abstrait)",f:"ough"},
+  {i:"to set",p:"set",pp:"set",fr:"fixer, placer",f:"same"},
+  {i:"to sew",p:"sewed",pp:"sewn",fr:"coudre",f:"en"},
+  {i:"to shed",p:"shed",pp:"shed",fr:"verser (larmes, sang)",f:"same"},
+  {i:"to shrink",p:"shrank",pp:"shrunk",fr:"rétrécir",f:"iau"},
+  {i:"to sink",p:"sank",pp:"sunk",fr:"sombrer, couler",f:"iau"},
+  {i:"to slide",p:"slid",pp:"slid",fr:"glisser",f:"vowel"},
+  {i:"to smell",p:"smelt",pp:"smelt",fr:"sentir (odorat)",f:"dt"},
+  {i:"to sow",p:"sowed",pp:"sown",fr:"semer",f:"en"},
+  {i:"to spell",p:"spelt",pp:"spelt",fr:"épeler",f:"dt"},
+  {i:"to spill",p:"spilt",pp:"spilt",fr:"renverser (liquide)",f:"dt"},
+  {i:"to spin",p:"spun",pp:"spun",fr:"filer, tourner",f:"ild"},
+  {i:"to spit",p:"spat",pp:"spat",fr:"cracher",f:"vowel"},
+  {i:"to split",p:"split",pp:"split",fr:"fendre",f:"same"},
+  {i:"to spoil",p:"spoilt",pp:"spoilt",fr:"gâter, gâcher",f:"dt"},
+  {i:"to spring",p:"sprang",pp:"sprung",fr:"bondir, jaillir",f:"iau"},
+  {i:"to sting",p:"stung",pp:"stung",fr:"piquer (insectes)",f:"ild"},
+  {i:"to stink",p:"stank",pp:"stunk",fr:"puer",f:"iau"},
+  {i:"to strive",p:"strove",pp:"striven",fr:"s'efforcer",f:"en"},
+  {i:"to swear",p:"swore",pp:"sworn",fr:"jurer",f:"en"},
+  {i:"to sweep",p:"swept",pp:"swept",fr:"balayer",f:"dt"},
+  {i:"to swell",p:"swelled",pp:"swollen",fr:"enfler, gonfler",f:"en"},
+  {i:"to swing",p:"swung",pp:"swung",fr:"(se) balancer",f:"ild"},
+  {i:"to thrust",p:"thrust",pp:"thrust",fr:"fourrer, enfoncer",f:"same"},
+  {i:"to tread",p:"trod",pp:"trodden",fr:"fouler aux pieds",f:"en"},
+  {i:"to weave",p:"wove",pp:"woven",fr:"tisser",f:"en"},
+  {i:"to weep",p:"wept",pp:"wept",fr:"pleurer",f:"dt"},
+  {i:"to wring",p:"wrung",pp:"wrung",fr:"tordre, essorer",f:"ild"},
+];
+
+const FAMILIES=[
+  {id:"iau",cls:"fc1",badge:"🎵 RYTHME",name:"I → A → U",sub:"LA FAMILLE MUSICALE"},
+  {id:"same",cls:"fc2",badge:"✂️ FACILE",name:"Tout pareil",sub:"LE CLUB DES PARESSEUX"},
+  {id:"dt",cls:"fc3",badge:"🔄 MUTATION",name:"D → T",sub:"LA VOIX QUI SE COUPE"},
+  {id:"vowel",cls:"fc4",badge:"🌊 GLISSE",name:"Voyelle glisse",sub:"UN SON QUI DÉRIVE"},
+  {id:"en",cls:"fc5",badge:"📝 SUFFIXE",name:"-en / -n au PP",sub:"L'EXTRA AU PARTICIPE"},
+  {id:"ough",cls:"fc6",badge:"💥 -OUGHT",name:"-ought / -aught",sub:"LE SON [ɔːT] PARTOUT"},
+  {id:"ewn",cls:"fc7",badge:"💨 EW→OWN",name:"ew → own",sub:"SOUFFLE QUI TOURNE"},
+  {id:"ild",cls:"fc8",badge:"🔨 I→U",name:"i → u court",sub:"VOYELLE COURTE"},
+  {id:"other",cls:"fc9",badge:"❓ REBELLES",name:"Irréguliers purs",sub:"PAS DE RÈGLE — VISUALISE"},
+];
+
+const FAM_C={
+  iau:{bg:"rgba(255,107,53,.12)",col:"#ff6b35"},
+  same:{bg:"rgba(0,229,160,.12)",col:"#00e5a0"},
+  dt:{bg:"rgba(255,214,0,.12)",col:"#ffd600"},
+  vowel:{bg:"rgba(124,77,255,.12)",col:"#7c4dff"},
+  en:{bg:"rgba(255,64,129,.12)",col:"#ff4081"},
+  ough:{bg:"rgba(0,180,216,.12)",col:"#00b4d8"},
+  ewn:{bg:"rgba(247,37,133,.12)",col:"#f72585"},
+  ild:{bg:"rgba(181,232,83,.12)",col:"#b5e853"},
+  other:{bg:"rgba(255,255,255,.07)",col:"#6a6a8a"},
+};
+const FAM_L={iau:"🎵 I-A-U",same:"✂️ Tout pareil",dt:"🔄 D→T",vowel:"🌊 Voyelle",en:"📝 -en/-n",ough:"💥 -ought",ewn:"💨 ew→own",ild:"🔨 i→u",other:"❓ Autre"};
+
+const MNEMOS=[
+  {col:"m-orange",icon:"🎵",tag:"FAMILLE DE SONS",title:"La chanson I → A → U",
+   desc:"Ces verbes suivent un <b>rythme musical identique</b>. Chante-les à voix haute : <em>i-a-u, i-a-u</em>. Une fois le refrain installé dans ta tête, tu ne les oublieras plus jamais. C'est la famille la plus puissante à apprendre en premier.",
+   ex:["begin → began → begun","drink → drank → drunk","sing → sang → sung","ring → rang → rung","swim → swam → swum","shrink → shrank → shrunk"]},
+  {col:"m-green",icon:"✂️",tag:"MÉMOIRE IMMÉDIATE",title:"Le club des paresseux",
+   desc:"Ces verbes <b>ne changent JAMAIS de forme</b>. Une seule orthographe pour l'infinitif, le prétérit et le participe passé. Mémorise-les en 5 minutes — ce sont les plus simples de toute la liste. Commence par eux !",
+   ex:["cut = cut = cut","put = put = put","cost = cost = cost","hit = hit = hit","let = let = let","set = set = set"]},
+  {col:"m-yellow",icon:"🔄",tag:"MUTATION FINALE",title:"D qui devient T",
+   desc:"Le son final <b>-d se transforme en -t</b> sec, comme une porte qui claque. Écoute : sen<b>D</b>… → sen<b>T</b>. La voyelle reste identique, seul le son final mute. Ce pattern couvre près de 20 verbes dans le fichier !",
+   ex:["send → sent → sent","build → built → built","spend → spent → spent","sleep → slept → slept","keep → kept → kept","feel → felt → felt"]},
+  {col:"m-purple",icon:"🌊",tag:"GLISSEMENT VOCALIQUE",title:"La voyelle qui glisse",
+   desc:"La voyelle centrale du verbe <b>dérive</b> entre les trois formes. Visualise une vague qui change de hauteur. Astuce : <b>hold → held</b>, la main se referme et raccourcit le son. <b>find → found</b>, l'action élargit la bouche.",
+   ex:["come → came → come","sit → sat → sat","hold → held → held","run → ran → run","find → found → found","stand → stood → stood"]},
+  {col:"m-pink",icon:"📝",tag:"SUFFIXE PARTICIPE",title:"Le suffixe -en / -n au PP",
+   desc:"Le <b>participe passé reçoit un -en ou -n</b> en bonus. Le prétérit a une forme courte, le PP rallonge. Pense-y comme une décoration ajoutée : <b>take → took</b>, mais <b>taken = took + EN</b>. Cherche toujours ce +EN au PP.",
+   ex:["take → took → taken","give → gave → given","write → wrote → written","speak → spoke → spoken","break → broke → broken","steal → stole → stolen"]},
+  {col:"m-blue",icon:"💥",tag:"SON [ɔːT]",title:"Le groupe -ought / -aught",
+   desc:"Ces verbes ont tous le <b>même son [ɔːt]</b> au prétérit et au participe, quelle que soit l'orthographe (ought ou aught). Regroupe-les ensemble dans ta tête : c'est une seule mélodie finale !",
+   ex:["bring → brought → brought","buy → bought → bought","think → thought → thought","teach → taught → taught","catch → caught → caught","fight → fought → fought"]},
+  {col:"m-red",icon:"💨",tag:"EW → OWN",title:"Prétérit -ew, Participe -own",
+   desc:"Ces verbes ont un <b>prétérit en -ew</b> et un <b>participe en -own ou -n</b>. Le schéma est régulier une fois qu'on le voit ! Visualise le souffle : tu souffles (blow/blew/blown), tu voles (fly/flew/flown).",
+   ex:["blow → blew → blown","fly → flew → flown","grow → grew → grown","throw → threw → thrown","know → knew → known","draw → drew → drawn"]},
+  {col:"m-lime",icon:"🔨",tag:"VOYELLE COURTE",title:"La voyelle i → u (verbes courts)",
+   desc:"Ces verbes courts ont une <b>voyelle i qui glisse vers u</b> au prétérit et au participe : cl<b>i</b>ng → cl<b>u</b>ng. Visualise une corde tendue (cling), une sangle qui tord (wring), un filateur (spin).",
+   ex:["cling → clung → clung","dig → dug → dug","fling → flung → flung","spin → spun → spun","swing → swung → swung","wring → wrung → wrung"]},
+  {col:"m-orange",icon:"🗣️",tag:"MÉTHODE ACTIVE",title:"Mini-phrases, pas des listes",
+   desc:"Ton cerveau <b>retient le contexte, pas les colonnes</b>. Au lieu de réciter « eat, ate, eaten » dans le vide, dis : <em>I eat pizza every day — Yesterday I ate pizza — I have eaten pizza</em>. Le verbe s'ancre dans une situation réelle.",
+   ex:["I EAT → Yesterday I ATE → I have EATEN","I GO → Yesterday I WENT → I have GONE","I WRITE → I WROTE → I have WRITTEN","I TAKE → I TOOK → I have TAKEN"]},
+  {col:"m-green",icon:"👁️",tag:"TECHNIQUE ACTIVE",title:"Cache et récite à voix haute",
+   desc:"Dans le Tableau, <b>cache la colonne prétérit</b> avec ta main et force-toi à dire la forme à voix haute avant de regarder. Ton cerveau mobilise activement la mémoire plutôt que lire passivement — la rétention est <b>3× plus forte</b>.",
+   ex:["to send → ??? → ???  → sent / sent","to speak → ??? → ???  → spoke / spoken","to take → ??? → ???  → took / taken","to think → ??? → ???  → thought / thought"]},
+  {col:"m-yellow",icon:"📌",tag:"SPRINT FINAL",title:"Post-it stratégiques",
+   desc:"Identifie tes <b>10–15 rebelles</b> (verbes ratés 2× au quiz). Écris-les en GRAND sur des post-it et colle-les aux endroits où ton regard tombe naturellement. La <b>répétition involontaire quotidienne</b> fait le reste sans effort.",
+   ex:["Miroir salle de bain → 3 verbes rebelles","Frigo → 3 verbes rebelles","Écran d'ordinateur → 4 verbes rebelles","= Lu et relu chaque jour sans s'en rendre compte"]},
+  {col:"m-purple",icon:"⚡",tag:"PRIORITÉ ABSOLUE",title:"Les 50 verbes les plus fréquents d'abord",
+   desc:"Inutile d'apprendre <em>to strive</em> si tu hésites encore sur <em>to get</em>. <b>Priorise les verbes du quotidien</b> — ils couvrent 90% de ce que tu entendras et liras en anglais réel. Maîtrise-les avant d'aller plus loin.",
+   ex:["Priorité 1 : be, have, do, go, get, say","Priorité 2 : make, know, take, come, see","Priorité 3 : think, look, want, give, use","Priorité 4 : find, tell, become, leave, put"]},
+];
+
+// ═══════════════ RENDER ═══════════════
+function renderFamilies(){
+  document.getElementById('familiesGrid').innerHTML=FAMILIES.map(f=>{
+    const vs=VERBS.filter(v=>v.f===f.id);
+    const rows=vs.slice(0,7).map(v=>`<div class="vrow"><span class="v1">${v.i.replace('to ','')}</span><span class="v2">${v.p}</span><span class="v3">${v.pp}</span><span class="vmean">${v.fr}</span></div>`).join('');
+    const more=vs.length>7?`<div class="more">+ ${vs.length-7} autres dans le Tableau</div>`:'';
+    return `<div class="fcard ${f.cls}"><span class="fbadge">${f.badge}</span><h3>${f.name}</h3><div class="fsub">${f.sub}</div><div class="vlist">${rows}${more}</div></div>`;
+  }).join('');
+}
+
+function renderTable(vs){
+  document.getElementById('vtbody').innerHTML=vs.map((v,i)=>{
+    const fc=FAM_C[v.f]||FAM_C.other;
+    return `<tr><td style="color:var(--dim);font-size:10px;font-family:var(--fm)">${i+1}</td><td class="c1t">${v.i}</td><td class="c2t">${v.p}</td><td class="c3t">${v.pp}</td><td class="c4t">${v.fr}</td><td><span class="vtag" style="background:${fc.bg};color:${fc.col}">${FAM_L[v.f]||'?'}</span></td></tr>`;
+  }).join('');
+}
+function filterTable(){
+  const q=document.getElementById('sinp').value.toLowerCase();
+  const f=document.getElementById('fsel').value;
+  let l=VERBS;
+  if(f!=='all') l=l.filter(v=>v.f===f);
+  if(q) l=l.filter(v=>v.i.includes(q)||v.p.includes(q)||v.pp.includes(q)||v.fr.toLowerCase().includes(q));
+  renderTable(l);
+}
+
+function renderMnemos(){
+  document.getElementById('mnemoGrid').innerHTML=MNEMOS.map(m=>`
+    <div class="mcard ${m.col}">
+      <div class="mcard-stripe"></div>
+      <div class="mcard-inner">
+        <div class="mcard-head">
+          <div class="mcard-icon">${m.icon}</div>
+          <div><div class="mcard-tag">${m.tag}</div><div class="mcard-title">${m.title}</div></div>
+        </div>
+        <div class="mcard-desc">${m.desc}</div>
+        <div class="mcard-ex">
+          <div class="ex-title">Exemples concrets</div>
+          ${m.ex.map(e=>`<div class="ex-line"><span class="ex-arrow">→</span><span>${e}</span></div>`).join('')}
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+// ═══════════════ QUIZ ═══════════════
+let qV=[],qIdx=0,qScore=0,qTotal=0,qFam='all';
+function setQFam(f,el){qFam=f;document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));el.classList.add('active');resetQuiz();}
+function resetQuiz(){
+  qScore=0;qTotal=0;qIdx=0;
+  qV=(qFam==='all'?[...VERBS]:VERBS.filter(v=>v.f===qFam)).sort(()=>Math.random()-.5);
+  document.getElementById('qScoreDisp').textContent=0;
+  document.getElementById('qTotalDisp').textContent=0;
+  document.getElementById('pFill').style.width='0%';
+  renderQ();
+}
+function renderQ(){
+  const c=document.getElementById('qContent');
+  if(qIdx>=qV.length){
+    const pct=qTotal>0?Math.round(qScore/qTotal*100):0;
+    const col=pct>=80?'var(--c3)':pct>=50?'var(--c4)':'var(--c5)';
+    c.innerHTML=`<div class="qresult"><div class="bscore" style="color:${col}">${pct}%</div><p>${qScore} / ${qTotal} points corrects</p><div class="qactions"><button class="btn-pri" onclick="resetQuiz()">↺ Recommencer</button></div></div>`;
+    return;
+  }
+  const v=qV[qIdx];
+  c.innerHTML=`<div class="qcard"><div class="qlabel">PRÉTÉRIT + PARTICIPE PASSÉ</div><div class="qverb">${v.i}</div><div class="qfr">${v.fr}</div><div class="qinputs"><input class="qinp" id="qi1" placeholder="Prétérit…" autocomplete="off" spellcheck="false" onkeydown="if(event.key==='Enter')checkQ()"><input class="qinp" id="qi2" placeholder="Participe passé…" autocomplete="off" spellcheck="false" onkeydown="if(event.key==='Enter')checkQ()"></div><div class="qactions"><button class="btn-pri" onclick="checkQ()">Vérifier ✓</button><button class="btn-sec" onclick="skipQ()">Passer →</button></div><div class="qfeedback" id="qfb"></div></div>`;
+  setTimeout(()=>document.getElementById('qi1')?.focus(),60);
+}
+function norm(s){return s.trim().toLowerCase().replace(/\s*\(.*?\)/g,'').replace(/\s+/g,' ').split('/')[0].trim();}
+function checkQ(){
+  const v=qV[qIdx];
+  const i1=document.getElementById('qi1'),i2=document.getElementById('qi2');
+  if(!i1||!i2)return;
+  const ok1=v.p.split('/').map(s=>norm(s)).includes(norm(i1.value));
+  const ok2=v.pp.split('/').map(s=>norm(s)).includes(norm(i2.value));
+  i1.classList.add(ok1?'ok':'ko');i2.classList.add(ok2?'ok':'ko');
+  qScore+=(ok1?1:0)+(ok2?1:0);qTotal+=2;
+  document.getElementById('qfb').innerHTML=`<span class="qfb-item">Prétérit : <strong>${v.p}</strong></span><span class="qfb-item">Participe : <strong>${v.pp}</strong></span>`;
+  document.getElementById('qScoreDisp').textContent=qScore;
+  document.getElementById('qTotalDisp').textContent=qTotal;
+  document.getElementById('pFill').style.width=Math.round(qIdx/qV.length*100)+'%';
+  setTimeout(()=>{qIdx++;renderQ();},1600);
+}
+function skipQ(){
+  const v=qV[qIdx];
+  document.getElementById('qfb').innerHTML=`<span class="qfb-item">Prétérit : <strong>${v.p}</strong></span><span class="qfb-item">Participe : <strong>${v.pp}</strong></span>`;
+  qTotal+=2;document.getElementById('qTotalDisp').textContent=qTotal;
+  setTimeout(()=>{qIdx++;renderQ();},1400);
+}
+
+// ═══════════════ TABS ═══════════════
+function showTab(name,el){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  el.classList.add('active');
+  if(name==='table') filterTable();
+  if(name==='quiz'&&qV.length===0) resetQuiz();
+}
+
+// ═══════════════ INIT ═══════════════
+renderFamilies();
+renderTable(VERBS);
+renderMnemos();
+</script>
+</body>
+</html>
